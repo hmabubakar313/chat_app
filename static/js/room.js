@@ -10,19 +10,18 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            var bool = true;
+            // alert(data)
+            li = document.getElementById('text-message')
+            li.innerHTML = data.message;
             
-            if (bool == true) {
-                document.querySelector('#text-message').innerHTML += data['message'];
-            }
-            bool = false;
-
-            if (bool == false) {
-                document.querySelector('#text-message2').innerHTML += data['message'];
-
-            } 
-            bool = true;
         };
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            // alert(data)
+            li2 = document.getElementById('text-message2')
+            li2.innerHTML = data.message;
+        };
+        
 
         chatSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');
