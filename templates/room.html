@@ -8,20 +8,63 @@
     <link href="{% static 'css/room.css' %}" rel="stylesheet">
 </head>
 <body>
-    {% comment %} <textarea id="chat-log" cols="100" rows="20"></textarea><br> {% endcomment %}
+    
     
     {{ room_name|json_script:"room-name" }}
-    <div class="wrapper" >
-        <ul>
-            <li id="text-message">
+
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> SimpleChat
+          </div>
+          <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+          </div>
+        </header>
+      
+        <main class="msger-chat">
+          <div class="msg left-msg">
+            <div
+             class="msg-img"
+             style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+            ></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">BOT</div>
+                <div class="msg-info-time">12:45</div>
+              </div>
+      
+              <div class="msg-text">
+               
+              </div>
+            </div>
+          </div>
+      
+          <div class="msg right-msg">
+            <div
+             class="msg-img"
+             style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+            ></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">Sajad</div>
+                <div class="msg-info-time">12:46</div>
+              </div>
+      
+              <div class="msg-text">
                 
-            </li> 
-            <li id="text-message2">
-            </li>
-        </ul>
-    </div>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+              </div>
+            </div>
+          </div>
+        </main>
+      
+        <form class="msger-inputarea">
+          <input type="text"  id="msger-input" class="msger-input" placeholder="Enter your message...">
+          <button type="button" id="msger-send-btn" >Send</button>
+        </form>
+    </section>
     <script src="{% static 'js/room.js' %}"></script>
 </body>
 </html>
