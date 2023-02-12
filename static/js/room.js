@@ -66,9 +66,9 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
             }));
             messageInputDom.value = '';
 
-            console.log('on click: ', message);
+            // console.log('on click: ', message);
             // append this message to the chat window 
-            function appendMessage(message, side, img, name) {
+            function appendMessage(name, side, img,message ) {
               const msgHTML = `
               <div class="msg ${side}-msg">
                 <div class="msg-img" style="background-image: url(${img})"></div>
@@ -87,7 +87,9 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
               msgerChat.scrollTop += 500;
             }
 
-            appendMessage(message);
+            
+
+            appendMessage('Person1','right','',message);
             
         };
  
