@@ -1,5 +1,7 @@
 const msgerForm = get(".msger-inputarea");
 const msgerChat = get(".msger-chat");
+const msgerInput = get(".msger-input");
+
 // Utils
 function get(selector, root = document) {
     return root.querySelector(selector);
@@ -43,7 +45,27 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
             const data = JSON.parse(e.data);
             const message = data['message'];
             // on message we are getting message from the server
-            console.log('on message: ', message);   
+            console.log('on message: ', message); 
+            function appendMessage1(name, side, img,message ) {
+              const msgHTML = `
+              <div class="msg ${side}-msg">
+                <div class="msg-img" style="background-image: url(${img})"></div>
+          
+                <div class="msg-bubble">
+                  <div class="msg-info">
+                    <div class="msg-info-name">${name}</div>
+                    <div class="msg-info-time">${formatDate(new Date())}</div>
+                  </div>
+          
+                  <div class="msg-text">${message}</div>
+                </div>
+              </div>
+            `;
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+
+         appendMessage1('Person2','left','',message);  
         };
         
         
@@ -52,9 +74,7 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
         document.querySelector('#user-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
                 document.querySelector('#sbt-btn').click();
-                appendMessage(message);
-            }
-            
+               
             
         };
         
@@ -92,4 +112,4 @@ const roomName = JSON.parse(document.getElementById('room-name').textContent);
             appendMessage('Person1','right','',message);
             
         };
- 
+      }
