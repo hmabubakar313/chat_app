@@ -1,4 +1,17 @@
-.env
+# ignore all .env files
+*.env
+
+# ignore all .pyc files
+*.pyc
+
+# ignore all .pyo files
+*.pyo
+
+# ignore all .pyd files
+*.pyd
+
+# ignore all .p
 *__.cpython
 *__pycache__
 *.cpython
+*.cpython-310.pyc
